@@ -23,8 +23,6 @@ const createUser = asyncHandler(async (req, res) => {
 // login a user
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
-
   // check if user exists or not
   const findUser = await User.findOne({ email });
   if (findUser && (await findUser.isPasswordMatched(password))) {
@@ -64,6 +62,7 @@ const handleRefreshToken = asyncHandler(async (req, res) => {
   const user = await User.findOne({ refreshToken });
   if (!user) throw new Error("No Refresh Token available");
   jwt.verify(refreshToken, process.env.JWT_SECRET, (err, decoded) => {
+    console.log(decoded);
     if (err || user.id !== decoded.id) {
       throw new Error("There is something wrong with refresh token ");
     }

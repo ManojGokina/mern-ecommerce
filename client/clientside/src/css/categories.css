@@ -1,0 +1,32 @@
+.categoriesCard {
+  height: 200px;
+  width: 200px;
+  transition: 1s ease;
+}
+
+.categoriesCard:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: 1s ease;
+}
+
+.centerDiamond{
+  background: aqua;
+}
+
+.centerDiamond:before{
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: aqua;
+  display: inline-block;
+  border: 2px solid aqua;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  margin: 0 0 0 -3px;
+  transform:rotate(45deg);
+  -ms-transform:rotate(45deg); /* IE 9 */
+  -webkit-transform:rotate(45deg); /* Opera, Chrome, and Safari */
+}
